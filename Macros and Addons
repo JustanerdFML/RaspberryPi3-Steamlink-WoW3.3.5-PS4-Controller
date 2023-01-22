@@ -1,0 +1,114 @@
+Usefull Makros
+
+DK
+
+#showtooltip
+/cast Plague Strike
+/cast Rune Strike
+/startattack
+
+#showtooltip
+/cast Scourge Strike
+/cast Rune Strike
+/startattack
+
+#showtooltip
+/cast Heart Strike
+/cast Rune Strike
+/startattack
+
+#showtooltip
+/cast Blood Strike
+/cast Rune Strike
+/startattack
+
+#showtooltip
+/cast Death Strike
+/cast Rune Strike
+/startattack
+
+#showtooltip
+/cast Icy Touch
+/cast Rune Strike
+/startattack
+
+#showtooltip
+/use Corroded Skeleton Key
+/cast Stoneform
+/cast Blood Tap
+/cast Vampiric Blood
+/cast Rune Tap
+
+#showtooltip
+/cast Frost Presence
+/cast Blood Presence
+
+/usetalents [spec:2]1;2
+/in 5.25 /equipset [spec:2]DPS;Tank
+
+#showtooltip
+/cast Turbo-Charged Flying Machine
+/cast Swift Mistsaber
+
+
+Hunter
+
+#showtooltip
+/cast !Auto Shot
+/console Sound_EnableSFX 0
+/cast Silencing Shot
+/castsequence reset=9/combat Chimera Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot
+/castsequence reset=10/combat Aimed Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot
+/castsequence reset=6/combat Arcane Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot
+/castsequence [target=pettarget,exists] Kill Command
+/cast Steady Shot
+/script UIErrorsFrame:Clear()
+/console Sound_EnableSFX 1 
+
+#showtooltip
+/cast !Auto Shot
+/console Sound_EnableSFX 0
+/cast Silencing Shot
+/castsequence reset=9/combat Chimera Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot
+/castsequence reset=10/combat Multi-Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot
+/castsequence reset=6/combat Arcane Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot, !Auto Shot
+/castsequence [target=pettarget,exists] Kill Command
+/cast Steady Shot
+/script UIErrorsFrame:Clear()
+/console Sound_EnableSFX 1 
+
+#showtooltip
+/castsequence Aspect of the Dragonhawk, Aspect of the Viper
+
+#showtooltip
+/cast Hunter's Mark
+/petattack
+
+
+#showtooltip
+/cast Swift Purple Gryphon
+/cast Swift Frostsaber
+
+
+Priest
+
+#showtooltip
+/cast Magnificent Flying Carpet
+/cast Swift Frostsaber
+
+
+
+Usefull Addons
+
+Atlas Loot
+Auctioneer
+Bagnon
+Bartender 4
+Camera Keys
+Gearscore
+Postal
+Recount
+RecountThreat
+Super Duper Macro
+WIM
+
