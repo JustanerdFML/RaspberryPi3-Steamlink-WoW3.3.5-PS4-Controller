@@ -4,3 +4,7 @@ https://www.pj64-emu.com/
 Setting up PS3 Controller via Bluetooth
 https://pimylifeup.com/raspberry-pi-playstation-controllers/
 2nd option
+
+
+LX Session PID error Fix
+mv /usr/bin/lxpolkit /usr/bin/lxpolkit.bak
