@@ -8,3 +8,6 @@ https://pimylifeup.com/raspberry-pi-playstation-controllers/
 
 LX Session PID error Fix
 mv /usr/bin/lxpolkit /usr/bin/lxpolkit.bak
+
+Steam rom manager
+https://github.com/SteamGridDB/steam-rom-manager/releases
