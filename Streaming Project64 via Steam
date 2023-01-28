@@ -34,3 +34,11 @@ https://www.libretro.com/index.php/category/parallel-n64/
 
 Starting Options for Steam
 "Path to:\Retroarch\retroarch.exe" -L "Path to:\Retroarch\cores\parallel_n64_libretro.dll" "\Path to Rom"
+--appendconfig /path/to/config.cfg
+
+Using different Driver Presets for different Cores
+    config.cfg
+        video_driver = "vulkan/glcore/d3d11/etc"
+https://docs.libretro.com/library/dolphin/
+e.g.
+"Path to:\Retroarch\retroarch.exe" -L "Path to:\Retroarch\cores\parallel_n64_libretro.dll" --appendconfig "/path/to/config.cfg" "\Path to Rom"
