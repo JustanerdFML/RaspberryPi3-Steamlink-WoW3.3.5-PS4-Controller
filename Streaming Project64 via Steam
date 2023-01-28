@@ -14,3 +14,20 @@ https://github.com/SteamGridDB/steam-rom-manager/releases
 
 Jediknight
 https://www.nexusmods.com/starwarsjediknightjediacademy/mods/17
+
+Issue:
+-Project64 underwelming performance
+Solution:
+-Replacing by Retroarch with Mupen64 Core via Steam Version of Retroarch
+Problem:
+-Steam Overlay not working with glcore/gl driver used by Mupen64
+Solution:
+-Installing Standalone Version of Retroarch
+-Downloading ParaLLEl N64 Core
+-Set Options -> GFX Plugin = parallel
+-Set Options -> RSP plugin = parallel
+This enables Vulkan driver
+-Steam Overlay working now
+
+Starting Options for Steam
+"Path to:\Retroarch\retroarch.exe" -L "Path to:\Retroarch\cores\parallel_n64_libretro.dll" "\Path to Rom"
