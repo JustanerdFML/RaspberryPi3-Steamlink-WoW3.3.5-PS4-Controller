@@ -21,7 +21,9 @@ Solution:
 -Replacing by Retroarch with Mupen64 Core via Steam Version of Retroarch
 Problem:
 -Steam Overlay not working with glcore/gl driver used by Mupen64, Mupen64 cant handle Vulkan
+-Limited Options for Core Downloads/Settings in Steam
 Solution:
+-Steam Version of Retroarch is Shit
 -Installing Standalone Version of Retroarch
 -Downloading ParaLLEl N64 Core
 -Set Options -> GFX Plugin = parallel
