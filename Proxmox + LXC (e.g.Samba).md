@@ -182,3 +182,5 @@ Use PiShrink to make image smaller (first download, 2nd make it executeable, 3rd
          chmod +x pishrink.sh
          sudo mv pishrink.sh /usr/local/bin
          sudo pishrink.sh /sambamountlocation/backup.img /sambamountlocation/backup_small.img
+
+you can now backup your Raspberry Pi with smaller backup.img e.g. via etcher
