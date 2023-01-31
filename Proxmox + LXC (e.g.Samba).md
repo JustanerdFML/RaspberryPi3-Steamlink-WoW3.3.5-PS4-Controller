@@ -108,7 +108,11 @@ login via putty
 
 go to proxmox web-UI
 
+shutdown container
+
 mount Disk into mnt/DEVICE
+
+start container
 
 check if DEVICE is mounted correct into directory
 
