@@ -11,6 +11,8 @@ https://www.balena.io/etcher
 
 #go to webinterface "https://servername or IP:8006"
 #log in via shell
+apt update
+apt upgrade
 
 nano /etc/ssh/sshd_config
 
