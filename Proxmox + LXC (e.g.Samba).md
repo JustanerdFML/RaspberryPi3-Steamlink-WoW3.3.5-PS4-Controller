@@ -160,12 +160,18 @@ permanently mounting Samba Network drive into Raspberry
          sudo nano /etc/fstab
 insert into conf:
 
-         //'IP of Samba server'/'your Folder'	/raspberry/folder cifs	defaults,noauto,nofail,username=TEST,password=PASSWORD,x-systemd.automount,x-systemd.requires=network-online.target	0	0
+         //'IP of Samba server'/'sambadrive'	/raspberry/folder cifs	defaults,noauto,nofail,username=TEST,password=PASSWORD,x-systemd.automount,x-systemd.requires=network-online.target	0	0
 
 
 ## Backup of Pi via Samba Mounted Network storage
 
+Find Device
+
+         lsblk
+         df -l
+         
 Run Backup
+SD_Card e.g. mmcblk0
 
          sudo dd bs=4M if=/dev/SD_Card of=/media/sambadrive/imagename.img 
          status=progress
