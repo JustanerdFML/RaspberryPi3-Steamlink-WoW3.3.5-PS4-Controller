@@ -1,18 +1,22 @@
-Setting up Proxmox and Samba
+# Setting up Proxmox and Samba
 
-#Get latest version of Proxmox
+### Get latest version of Proxmox
+
 https://www.proxmox.com/de/downloads
 
-#Make Bootable Device with e.g. Etcher
+### Make Bootable Device with e.g. Etcher
+
 https://www.balena.io/etcher
 
-#Boot via usb stick and install Proxmox
+### Boot via usb stick and install Proxmox
 (check Router DNS/Server IPs for any conflicts in case of no internet)
 
-#go to webinterface "https://servername or IP:8006"
-#log in via shell
-apt update
-apt upgrade
+go to webinterface "https://servername or IP:8006"
+log in via shell
+
+   apt update
+  
+   apt upgrade
 
 nano /etc/ssh/sshd_config
 
