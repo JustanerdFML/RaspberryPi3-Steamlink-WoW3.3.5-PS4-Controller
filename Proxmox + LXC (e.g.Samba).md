@@ -149,11 +149,19 @@ Restart smbd.service
 
 ## Mounting Samba network storage to Raspberry Pi
 
-(temporally) Mounting Samba Netzwork drive into Raspberry
+(temporally) Mounting Samba Network drive into Raspberry
 
          apt-get install cifs-utils
          sudo mount -t cifs //"YOUR SERVERS IP ADRESS/folder setup in Samba conf" /mnt/DEVICE -o user=nobody
          sudo mount -t cifs -o username=user,password=yourpassword,vers=2.0 //serverip/public /'path where Samba should be mounted'
+
+permanently mounting Samba Network drive into Raspberry
+
+         sudo nano /etc/fstab
+insert into conf:
+
+         //'IP of Samba server'/public	/media/samba	cifs	defaults,noauto,nofail,username=USER,password=PASSWORD,x-systemd.automount,x-systemd.requires=network-online.target	0	0
+
 
 ## Backup of Pi via Samba Mounted Network storage
 
