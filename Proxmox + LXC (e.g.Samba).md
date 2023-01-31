@@ -143,7 +143,7 @@ Restart smbd.service
          sudo systemctl restart smbd.service
          sudo service smbd reload
 
-Mounting Samba Netzwork drive into Raspberry
+(temporally) Mounting Samba Netzwork drive into Raspberry
 
          apt-get install cifs-utils
          sudo mount -t cifs //"YOUR SERVERS IP ADRESS/folder setup in Samba conf" /mnt/DEVICE -o user=nobody
