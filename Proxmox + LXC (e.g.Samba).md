@@ -14,97 +14,138 @@ https://www.balena.io/etcher
 go to webinterface "https://servername or IP:8006"
 log in via shell
 
-   apt update
-  
-   apt upgrade
+Allowing Root Access via SSH
 
-nano /etc/ssh/sshd_config
+         nano /etc/ssh/sshd_config
 
-#change line to:
-PermitRootLogin yes
+change line to:
 
-service sshd restart
+         PermitRootLogin yes
+         
+Restard SSH Service
 
-nano /etc/apt/sources.list
+         service sshd restart
 
-->change
+Changing source lists
 
-deb http://ftp.debian.org/debian bullseye main contrib
-deb http://ftp.debian.org/debian bullseye-updates main contrib
-# security updates
-deb http://security.debian.org/debian-security bullseye-s
+         nano /etc/apt/sources.list
 
-->to
+from
 
-deb http://ftp.debian.org/debian bullseye main contrib
-deb http://ftp.debian.org/debian bullseye-updates main contrib
-# PVE pve-no-subscription repository provided by proxmox.com,
-# NOT recommended for production use
-deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
-# security updates
-deb http://security.debian.org/debian-security bullseye-security main contrib
+         deb http://ftp.debian.org/debian bullseye main contrib
+         deb http://ftp.debian.org/debian bullseye-updates main contrib
+         # security updates
+         deb http://security.debian.org/debian-security bullseye-s
 
-nano /etc/apt/sources.list.d/pve-enterprise.list
+to
 
-->change
+         deb http://ftp.debian.org/debian bullseye main contrib
+         deb http://ftp.debian.org/debian bullseye-updates main contrib
+         # PVE pve-no-subscription repository provided by proxmox.com,
+         # NOT recommended for production use
+         deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
+         # security updates
+         deb http://security.debian.org/debian-security bullseye-security main contrib
+         
+Reposetry non-sub change
 
-deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
+         nano /etc/apt/sources.list.d/pve-enterprise.list
 
-->to
+from
 
-#deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
+         deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
 
-apt-get update
-apt-get upgrade -y
+to
 
-apt install parted -y
+         #deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
+         
+Updating Repos
 
-lsblk
-parted /dev/DEVICE(e.g.sda) "mklabel gpt"
+         apt-get update
+         apt-get upgrade -y
 
-#go to web-UI
-#mount ZFS System -> DEVICE you have chosen
+Configuring HDD
 
-#Proxmox now installed/root access enabled via SSH/parted installed/reposetorys updated-changed
+         apt install parted -y
 
-#choose image to download for LXC container
-#make you LXC - port /24
-#go to shell
-#repeat
+         lsblk
+         
+Format/Partition
 
-#go to host system shell
-lxc-attach --name "number"
-#"number" is lxc containers ID
+         parted /dev/DEVICE(e.g.sda) "mklabel gpt"
 
-nano /etc/ssh/sshd_config
+go to web-UI
+mount ZFS System -> DEVICE you have chosen
 
-#change line to:
-PermitRootLogin yes
+### Proxmox now installed/root access enabled via SSH/parted installed/reposetorys updated-changed
 
-service sshd restart
+choose image to download for LXC container
+make you LXC - port /24
 
-#login via putty
-mkdir mnt/DEVICE
+go to host system shell
 
-#go to proxmox web-UI
-#mount Disk into mnt/DEVICE
+         lxc-attach --name "number"
+         
+"number" is lxc containers ID
 
-df -h
-#check if DEVICE is mounted correct into directory
+Repeat Allowing Root Access via SSH
 
-sudo apt-get install samba
-adduser TEST
-#setup password etc.
-sudo smbpasswd -a TEST
-#setup password for sambauser
+         nano /etc/ssh/sshd_config
 
-sudo nano /etc/samba/smb.conf
-chmod 777 /mnt/DEVICE
-#setup users and directorys as you like
-#chmod it as you like
+change line to:
 
-sudo systemctl restart smbd.service
-sudo service smbd reload
+         PermitRootLogin yes
+         
+Restard SSH Service
 
- apt-get install cifs-utils
- sudo mount -t cifs //"YOUR SERVERS IP ADRESS/folder setup in Samba conf" /mnt/DEVICE -o user=nobody
+         service sshd restart
+
+login via putty
+
+         mkdir mnt/DEVICE
+
+go to proxmox web-UI
+
+mount Disk into mnt/DEVICE
+
+check if DEVICE is mounted correct into directory
+
+         df -h
+         
+Installing Samba
+
+         sudo apt-get install samba
+         
+Setting up Unix-User
+
+         adduser TEST
+
+Setting up Samba-User password
+
+         sudo smbpasswd -a TEST
+         
+Configuring smb.conf
+
+         sudo nano /etc/samba/smb.conf
+         chmod 777 /mnt/DEVICE
+         
+setup users and directorys as you like
+chmod directory as you like
+
+Restart smbd.service
+
+         sudo systemctl restart smbd.service
+         sudo service smbd reload
+
+Mounting Samba Netzwork drive into Raspberry
+
+         apt-get install cifs-utils
+         sudo mount -t cifs //"YOUR SERVERS IP ADRESS/folder setup in Samba conf" /mnt/DEVICE -o user=nobody
+         sudo mount -t cifs -o username=user,password=yourpassword,vers=2.0 //serverip/public /'path where Samba should be mounted'
+
+### Backup of Pi via Samba Mounted Network storage
+
+Run Backup
+
+         sudo dd bs=4M if=/dev/SD_Card of=/media/sambadrive/imagename.img 
+         status=progress
