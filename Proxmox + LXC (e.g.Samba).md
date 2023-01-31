@@ -155,3 +155,10 @@ Run Backup
 
          sudo dd bs=4M if=/dev/SD_Card of=/media/sambadrive/imagename.img 
          status=progress
+
+Use PiShrink to make image smaller (first download, 2nd make it executeable, 3rd move to /usr/local/bin, 4th execute script)
+
+         wget https://raw.githubusercontent.com/Drewsif/PiShrink/master/pishrink.sh
+         chmod +x pishrink.sh
+         sudo mv pishrink.sh /usr/local/bin
+         sudo pishrink.sh /sambamountlocation/backup.img /sambamountlocation/backup_small.img
