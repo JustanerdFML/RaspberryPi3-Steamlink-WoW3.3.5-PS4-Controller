@@ -94,7 +94,7 @@ go to host system shell
          
 "number" is lxc containers ID
 
-Repeat Allowing Root Access via SSH
+go to LXC shell, Repeat Allowing Root Access via SSH
 
          nano /etc/ssh/sshd_config
 
