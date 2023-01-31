@@ -79,6 +79,8 @@ mount ZFS System -> DEVICE you have chosen
 
 ### Proxmox now installed/root access enabled via SSH/parted installed/reposetorys updated-changed
 
+## Configuring/Attaching LXC-Container to Proxmox
+
 choose image to download for LXC container
 make you LXC - port /24
 
@@ -111,7 +113,7 @@ mount Disk into mnt/DEVICE
 check if DEVICE is mounted correct into directory
 
          df -h
-         
+## Setting up Samba         
 Installing Samba
 
          sudo apt-get install samba
@@ -143,7 +145,7 @@ Mounting Samba Netzwork drive into Raspberry
          sudo mount -t cifs //"YOUR SERVERS IP ADRESS/folder setup in Samba conf" /mnt/DEVICE -o user=nobody
          sudo mount -t cifs -o username=user,password=yourpassword,vers=2.0 //serverip/public /'path where Samba should be mounted'
 
-### Backup of Pi via Samba Mounted Network storage
+## Backup of Pi via Samba Mounted Network storage
 
 Run Backup
 
