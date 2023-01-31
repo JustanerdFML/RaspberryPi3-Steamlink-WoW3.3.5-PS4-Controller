@@ -143,6 +143,8 @@ Restart smbd.service
          sudo systemctl restart smbd.service
          sudo service smbd reload
 
+## Mounting Samba network storage to Raspberry Pi
+
 (temporally) Mounting Samba Netzwork drive into Raspberry
 
          apt-get install cifs-utils
