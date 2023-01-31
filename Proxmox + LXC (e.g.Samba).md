@@ -59,6 +59,10 @@ to
 
          #deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
          
+do a reboot
+
+         sudo reboot
+
 Updating Repos
 
          apt-get update
