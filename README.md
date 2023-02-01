@@ -74,8 +74,7 @@ added Line
 
     iwconfig wlan0 power off
 
-avoiding errors on boot in case steamlink boots before connection to network has been made
-disable HDMI Blanking
+avoiding errors on boot in case steamlink boots before connection to network has been made, disable HDMI Blanking
 
     sudo raspi-config
     
