@@ -75,10 +75,12 @@ added Line
     iwconfig wlan0 power off
 
 avoiding errors on boot in case steamlink boots before connection to network has been made
+disable HDMI Blanking
 
     sudo raspi-config
     
     -> advanced -> wait for lan on boot -> enable
+    -> display options -> disable HDMI Blanking
 
 After configuring the Pi you can go ahead and pair Controller to your Rasp and Steamlink to Steam running on your Windows PC
 
