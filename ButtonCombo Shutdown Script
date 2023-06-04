@@ -41,7 +41,7 @@ Loop
 	
 	if ((LShoulder > 1) && (RShoulder > 1) && (Start > 1) && (Back > 1))
 	{
-		run "C:\Users\koala\Documents\AutoHotkey\Shutdown.cmd"
+		run "PATHTOYOUR\Shutdown.cmd"
 		LShoulder =0
 		RShoulder =0
 		Start =0
