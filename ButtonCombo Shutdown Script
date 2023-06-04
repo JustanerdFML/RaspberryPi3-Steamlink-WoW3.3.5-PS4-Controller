@@ -1,0 +1,60 @@
+;Autohotkeyscript for Using a XBoxOne Controller to close multipel Emulators by Buttons
+
+#Include XInput.ahk
+
+LShoulder =0
+RShoulder =0
+Start =0
+Back =0
+
+XInput_Init()
+Loop
+{
+	State:=XInput_GetState()
+	if (State.Buttons=0x0100)
+	{
+		LShoulder +=1.0
+		SetTimer, Reset, -400
+
+	}
+
+	if (State.Buttons=0x0200)
+	{
+		RShoulder +=1.0
+		SetTimer, Reset, -400
+
+	}
+	
+	if (State.Buttons=0x0010)
+	{
+		Start +=1.0
+		SetTimer, Reset, -400
+
+	}
+	
+	if (State.Buttons=0x0020)
+	{
+		Back +=1.0
+		SetTimer, Reset, -400
+
+	}
+	
+	if ((LShoulder > 1) && (RShoulder > 1) && (Start > 1) && (Back > 1))
+	{
+		run "C:\Users\koala\Documents\AutoHotkey\Shutdown.cmd"
+		LShoulder =0
+		RShoulder =0
+		Start =0
+		Back =0
+		sleep 400
+	}
+}
+
+Reset:
+{
+		LShoulder =0
+		RShoulder =0
+		Start =0
+		Back =0
+}
+return
