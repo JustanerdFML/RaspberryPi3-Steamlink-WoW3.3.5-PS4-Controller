@@ -1,0 +1,103 @@
+using System.Collections.Generic;
+using System.IO;
+using System.Management;
+using System.Security.Cryptography.X509Certificates;
+
+class USBDeviceInfo
+{
+    public USBDeviceInfo(string deviceId, string name, string description)
+    {
+        DeviceId = deviceId;
+        Name = name;
+        Description = description;
+    }
+
+    public string DeviceId { get; }
+    public string Name { get; }
+    public string Description { get; }
+
+    public override string ToString()
+    {
+        return Name;
+    }
+}
+
+public class Program
+{
+    static List<USBDeviceInfo> GetUSBDevices()
+    {
+        var devices = new List<USBDeviceInfo>();
+        using (var mos = new ManagementObjectSearcher(@"Select * From Win32_PnPEntity"))
+        {
+            using (ManagementObjectCollection collection = mos.Get())
+            {
+                foreach (var device in collection)
+                {
+                    var id = device.GetPropertyValue("DeviceId").ToString();
+
+                    if (!id.StartsWith("USB", StringComparison.OrdinalIgnoreCase))
+                        continue;
+
+                    var name = device.GetPropertyValue("Name").ToString();
+                    var description = device.GetPropertyValue("Description").ToString();
+                    devices.Add(new USBDeviceInfo(id, name, description));
+                }
+            }
+        }
+        return devices;
+    }
+
+    private static void Main()
+    {
+        string devices3;
+
+        // var blabla = new List<USBDeviceInfo>();
+        // foreach (var devices in blabla)
+        //  {
+        //     Console.WriteLine($"device {devices}!");
+        // }
+        // Console.WriteLine("-----");
+
+        //  var devices = new List<USBDeviceInfo>();
+        // List<USBDeviceInfo>().ForEach(Console.WriteLine);
+
+
+        // Console.WriteLine(name);
+        // foreach (var devices = "Xbox Wireless Adapter for Windows" in GetUSBDevices())
+        //  {
+        //     Console.WriteLine("xbox");
+        //  }
+        Console.WriteLine("--- Test 1:");
+
+        GetUSBDevices().ForEach(Console.WriteLine);
+
+        Console.WriteLine("--- Test 2:");
+
+        foreach (var devices in GetUSBDevices())
+        {
+            string devices2 = devices.ToString();
+
+         
+           
+            Console.WriteLine(devices2);
+        }
+
+
+        //if (devices2.Contains("USB"))
+        //{
+
+        //    Console.WriteLine("controller '" + devices2 + "' found");
+
+        //}
+
+        //else
+        //{
+        //    Console.WriteLine("no controller found");
+        //    return;
+        //
+
+        Console.ReadKey();
+                return;
+
+    }
+}
