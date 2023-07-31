@@ -1,6 +1,8 @@
-	https://www.autoitscript.com/forum/topic/148005-imagesearch-usage-explanation/page/4/
-  	https://www.autoitscript.com/forum/applications/core/interface/file/attachment.php?id=48056
+Based on:
 
+	https://www.youtube.com/watch?v=SFxSVksJWmo
+ 	https://www.autoitscript.com/forum/topic/148005-imagesearch-usage-explanation/page/4/
+  	https://www.autoitscript.com/forum/applications/core/interface/file/attachment.php?id=48056
 
 ImageSearch2015 Script
 
