@@ -1,6 +1,6 @@
 ImageSearch2015 Script
 
-Run ImageSearch2015.au3 with Admit Rights once, add Line:
+Run ImageSearch2015.au3 with Admin Rights once, add Line:
 
     #RequireAdmin
     
